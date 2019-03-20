@@ -12,8 +12,10 @@ class Utilisateur{
         $this->connect = $db->prepare("select email, idRole, mdp from utilisateur where email=:email");
         $this->select  =  $db->prepare("select  email,  idRole,  nom,  prenom,  r.libelle  as  libellerole from utilisateur u, role r where u.idRole = r.id order by nom");
         $this->selectByEmail = $db->prepare("select email, nom, prenom, idRole from utilisateur where email=:email");
+       
         
     }
+    
     
     public function insert($email, $mdp, $role, $nom, $prenom){ 
         $r = true;
