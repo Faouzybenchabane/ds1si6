@@ -1,0 +1,28 @@
+ <form class="form-signin" action="index.php?page=AjouterActu" method="post"
+enctype="application/x-www-form-urlencoded">
+ <h1 class="h3 mb-3 font-weight-normal">Ajouter une actu</h1>
+ <label for="inputEmail" class="sr-only">Email:</label>
+ <label for="inputPassword" class="sr-only"> Modifier le mot de passe:</label>
+ <input type="password" id="inputPassword" name="inputPassword" class="form-control"
+placeholder="Modifier le mot de passe:" required>
+ <label for="inputPassword2" class="sr-only">Confirmer le mot de passe à modifier: </label>
+ <input type="password" id="inputPassword2" name="inputPassword2" class="form-control"
+placeholder="Confirmation mot de passe" required>
+ {# Nom et prénom #}
+ <label for="nom" class="sr-only">Nom:</label>
+ <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom"
+value="{{form.utilisateur.nom}}" required>
+ <label for="prenom" class="sr-only">Prénom:</label>
+ <input type="prenom" id="prenom" name="prenom" class="form-control"
+placeholder="Prénom" value="{{form.utilisateur.prenom}}" required>
+
+ <select class="form-control" name="role">
+{% for r in form.roles %}
+ <option value="{{ r.id }}">{{ r.libelle }}</option>
+ {% endfor %} 
+
+ </select>
+ <button class="btn btn-lg btn-primary btn-block" type="submit"
+name="btModifier">Modifier</button>
+
+</form>
